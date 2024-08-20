@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Day2 Assignment1</title>
+    </head>
+    <body>
+        <script>
+            window.alert("Child is between 1-10\nTeenager is between 11-18\nGrown up is between 19-50\nOld is greater than 50");
+            var age;
+            while (true) {
+                age = prompt("Enter your age (positive numbers only)");
+                if (age === null) {
+                    break;
+                }
+                age = Number(age);
+                if (age > 0) {
+                    if (age <= 10) {
+                        window.alert("Status: Child");
+                    } else if (age <= 18) {
+                        window.alert("Status: Teenager");
+                    } else if (age <= 50) {
+                        window.alert("Status: Grown up");
+                    } else {
+                        window.alert("Status: Old");
+                    }
+                }else {
+                    window.alert("Please enter a positive number.");
+                };
+            };
+        </script>
+        
+        
+    </body>
+</html>

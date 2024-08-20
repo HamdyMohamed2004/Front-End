@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .flex {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 300px);
+            gap: 10px;
+        }
+        img {
+            width: 300px;
+            height: 300px;
+        }
+        hr {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        h2{
+            display: inline-block;
+            font-size: 32px;
+            color: red;
+        }
+        span{
+            font-size: 24px;
+            color: blue;
+            font-weight: bolder;
+        }
+        p{
+            display: inline-block;
+            font-size: 24px;
+        }
+        li{
+            font-size: 24px;
+        }
+    </style>
+    <title>Flex vs. Grid</title>
+</head>
+<body>
+    <h2>Flex : </h2> 
+    <ul>
+        <li><span> One-dimensional layout : </span>is great for simpler, linear layouts and aligning items in one dimension(rows or columns)</li>
+        <li><span>Content-driven : </span>Flex is content-driven, meaning the layout is primarily based on the size of the items within it,containers adjust to the size of their content</li>
+        <li><span>Alignment : </span>excels at aligning and distributing space among items within a container</li>
+    </ul>
+    
+    <div class="flex">
+        <img src="https://images.pexels.com/photos/2893685/pexels-photo-2893685.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 1">
+        <img src="https://images.pexels.com/photos/2892012/pexels-photo-2892012.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 2">
+        <img src="https://images.pexels.com/photos/1685966/pexels-photo-1685966.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 3">
+        <img src="https://images.pexels.com/photos/922611/pexels-photo-922611.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 4">
+        <img src="https://images.pexels.com/photos/2901134/pexels-photo-2901134.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 5">
+        <img src="https://images.pexels.com/photos/1470405/pexels-photo-1470405.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 6">
+    </div>
+    <hr>
+    <h2>Grid : </h2> 
+    <ul>
+        <li><span> Two-dimensional layout : </span>excels in creating complex, two-dimensional layouts with precise control over both rows and columns</li>
+        <li><span>Layout-driven: : </span>Grid is layout-driven, meaning the layout is defined by the grid container, and items are placed within that predefined structure,This provides more control over the overall design</li>
+        <li><span>features : </span>Grid includes advanced features like grid lines, grid areas, and the ability to span items across multiple rows and columns. This provides fine-grained control over the layout</li>
+    </ul>
+    <div class="grid">
+        <img src="https://images.pexels.com/photos/2893685/pexels-photo-2893685.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 1">
+        <img src="https://images.pexels.com/photos/2892012/pexels-photo-2892012.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 2">
+        <img src="https://images.pexels.com/photos/1685966/pexels-photo-1685966.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 3">
+        <img src="https://images.pexels.com/photos/922611/pexels-photo-922611.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 4">
+        <img src="https://images.pexels.com/photos/2901134/pexels-photo-2901134.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 5">
+        <img src="https://images.pexels.com/photos/1470405/pexels-photo-1470405.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Image 6">
+    </div>
+</body>
+</html>

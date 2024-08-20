@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day5 Assignment2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .custom-container {
+            background-color: white;
+            padding: 20px;
+            border: 2px solid black;
+            width: 320px;
+            text-align: center;
+        }
+        .clock-container {
+            background-color: gray;
+            padding: 20px;
+            border: 2px solid black;
+            width: 270px;
+            text-align: center;
+        }
+        #watch{
+            position: relative;
+        }
+        .alarm {
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .clock-input {
+            width: 70px;
+        }
+        .input-label {
+            margin-left: 5px;
+        }
+        .days-container {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .days-container li {
+            font-size: 12px;
+        }
+        .clock-inner-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .clock-section {
+            flex: 1;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+        <div class="custom-container">
+            <div id="watch"></div>
+            <hr>
+            <div class="clock-container" id="alarm">
+                <p>Set Alarm</p>
+                <div class="clock-inner-container">
+                    <div id="Hour" class="clock-section">
+                        <label for="H" class="form-label">Hours</label>
+                        <input type="number" value="0" id="H" min="1" max="12" step="1" class="form-control clock-input">
+                    </div>
+                    <div id="min" class="clock-section">
+                        <label for="Min" class="form-label">Minutes</label>
+                        <input type="number" value="0" id="Min" min="0" max="59" step="1" class="form-control clock-input">
+                    </div>
+                    <div id="sec" class="clock-section">
+                        <label for="Sec" class="form-label">Seconds</label>
+                        <input type="number" value="0" id="Sec" min="0" max="59" step="1" class="form-control clock-input">
+                    </div>
+                </div>
+                <div id="ampm" class="text-center mt-2">
+                    <input type="radio" id="PM" name="ampm" value="PM" class="form-check-input">
+                    <label for="PM" class="input-label">PM</label>
+                    <input type="radio" id="AM" name="ampm" value="AM" class="form-check-input ms-2">
+                    <label for="AM" class="input-label">AM</label>
+                </div>
+                <div class="mt-2">
+                    <button id="set" class="btn btn-primary">Set</button>
+                    <button id="clear" class="btn btn-danger ms-2">Clear</button>
+                </div>
+            </div>
+            <div id="time-display" class="mt-3"></div>
+        </div>
+    </div>
+
+    <script>
+        var now;
+        var alarmTimeout;
+        function updateWatch() {
+            now = new Date();
+            var watch = document.getElementById("watch");
+            watch.innerHTML = now.toLocaleTimeString();
+            var ul = document.createElement('ul');
+            ul.className = 'days-container text-muted';
+            var days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+            days.forEach(function(day) {
+                var li = document.createElement('li');
+                li.className = day;
+                li.textContent = day;
+                ul.appendChild(li);
+            });
+            watch.insertAdjacentElement('afterbegin', ul);
+            var alarm = document.createElement('span');
+            alarm.className = 'alarm';
+            alarm.textContent = "⏰";
+            alarm.onclick = function() {
+                var alarmContainer = document.getElementById('alarm');
+                alarmContainer.classList.toggle('d-none');
+            };
+            ul.insertAdjacentElement('afterbegin', alarm);
+            whichDay();
+        };
+
+        updateWatch();
+        setInterval(updateWatch, 1000);
+
+        function whichDay() {
+            var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+            var day = days[now.getDay()];
+            var elements = document.getElementsByClassName(day);
+            if (elements.length > 0) {
+                elements[0].style.color = 'black';
+            };
+        };
+
+        function formatTime(ms) {
+        var totalSeconds = Math.floor(ms / 1000);
+        var hours = Math.floor(totalSeconds / 3600);
+        var minutes = Math.floor((totalSeconds % 3600) / 60);
+        var seconds = totalSeconds % 60;
+
+        return [hours, minutes, seconds].map(num => num.toString().padStart(2, '0')).join(':');
+        };
+
+        document.getElementById('set').addEventListener('click', function() {
+        var hours = parseInt(document.getElementById('H').value) || 0;
+        var minutes = parseInt(document.getElementById('Min').value) || 0;
+        var seconds = parseInt(document.getElementById('Sec').value) || 0;
+        var ampm = document.querySelector('input[name="ampm"]:checked')?.value;
+
+        if (hours === 0) {
+        alert('Please set a valid time for the alarm.');
+        return;
+        };
+        if (!ampm) {
+            alert('Please select AM or PM.');
+            return;
+        };
+        var alarmTime = new Date();
+        alarmTime.setHours(hours + (ampm === 'PM' && hours < 12 ? 12 : 0));
+        alarmTime.setMinutes(minutes);
+        alarmTime.setSeconds(seconds);
+        var timeToAlarm = alarmTime - now;
+
+        if (timeToAlarm < 0) {
+            timeToAlarm += 24 * 60 * 60 * 1000;
+        };
+        var formattedTime = formatTime(timeToAlarm);
+        document.getElementById('time-display').textContent = 'Time to alarm: ' + formattedTime;
+
+
+        if (alarmTimeout) {
+            clearTimeout(alarmTimeout);
+        };
+
+        alarmTimeout = setTimeout(function() {
+        var currentTime = new Date().toLocaleTimeString();
+        alert('Alarm ringing! Current time: ' + currentTime);
+        }, timeToAlarm);
+        });
+
+        document.getElementById('clear').addEventListener('click', function() {
+        document.getElementById('H').value = '0';
+        document.getElementById('Min').value = '0';
+        document.getElementById('Sec').value = '0';
+        var checkedRadio = document.querySelector('input[name="ampm"]:checked');
+        if (checkedRadio) {
+            checkedRadio.checked = false;
+        };
+        if (alarmTimeout) {
+            clearTimeout(alarmTimeout);
+        };
+        document.getElementById('time-display').textContent = '';
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

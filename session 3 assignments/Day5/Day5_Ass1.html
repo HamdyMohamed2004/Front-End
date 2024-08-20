@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Day5 Assignment1</title>
+    <style>
+        .slider-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider-item {
+            flex: 0 0 33.33%;
+            opacity: 0.5;
+            transition: opacity 0.5s, transform 0.5s;
+            transform: scale(0.8);
+        }
+
+        .slider-item.center {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .slider-item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .slider-control-prev,
+        .slider-control-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: #000;
+            cursor: pointer;
+            z-index: 1000;
+            user-select: none;
+        }
+
+        .slider-control-prev {
+            left: 0;
+        }
+
+        .slider-control-next {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body class="bg-info">
+    <div class="slider-container">
+        <div class="slider-track">
+            <!-- Add Image 6 at the start for loop support -->
+            <div class="slider-item">
+                <img src="https://via.placeholder.com/800x400?text=Image+6" alt="Image 6">
+            </div>
+            <div class="slider-item center">
+                <img src="https://via.placeholder.com/800x400?text=Image+1" alt="Image 1">
+            </div>
+            <div class="slider-item">
+                <img src="https://via.placeholder.com/800x400?text=Image+2" alt="Image 2">
+            </div>
+            <div class="slider-item">
+                <img src="https://via.placeholder.com/800x400?text=Image+3" alt="Image 3">
+            </div>
+            <div class="slider-item">
+                <img src="https://via.placeholder.com/800x400?text=Image+4" alt="Image 4">
+            </div>
+            <div class="slider-item">
+                <img src="https://via.placeholder.com/800x400?text=Image+5" alt="Image 5">
+            </div>
+            <div class="slider-item">
+                <img src="https://via.placeholder.com/800x400?text=Image+6" alt="Image 6">
+            </div>
+            <!-- Add Image 1 at the end for loop support -->
+            <div class="slider-item">
+                <img src="https://via.placeholder.com/800x400?text=Image+1" alt="Image 1">
+            </div>
+        </div>
+        <div class="slider-control-prev" onclick="movePrev()">&#10094;</div>
+        <div class="slider-control-next" onclick="moveNext()">&#10095;</div>
+    </div>
+
+    <script>
+        const sliderTrack = document.querySelector('.slider-track');
+        const items = document.querySelectorAll('.slider-item');
+        let activeIndex = 1;
+        let isTransitioning = false;
+
+        function updateSlider() {
+            items.forEach((item) => {
+                item.classList.remove('center');
+            });
+
+            items[activeIndex].classList.add('center');
+            sliderTrack.style.transform = `translateX(-${(activeIndex - 1) * 33.33}%)`;
+            isTransitioning = false;
+        };
+
+        function moveNext() {
+            if (isTransitioning) return;
+            isTransitioning = true;
+
+            activeIndex++;
+            if (activeIndex === items.length - 1) {
+                sliderTrack.style.transition = "transform 0.5s ease-in-out";
+                updateSlider();
+
+                setTimeout(() => {
+                    sliderTrack.style.transition = "none";
+                    activeIndex = 1;
+                    sliderTrack.style.transform = `translateX(-${(activeIndex - 1) * 33.33}%)`;
+                    setTimeout(() => {
+                        sliderTrack.style.transition = "transform 0.5s ease-in-out";
+                        updateSlider();
+                    }, 50);
+                }, 500);
+            } else {
+                updateSlider();
+            };
+        };
+
+        function movePrev() {
+            if (isTransitioning) return;
+            isTransitioning = true;
+
+            activeIndex--;
+            if (activeIndex === 0) {
+                sliderTrack.style.transition = "transform 0.5s ease-in-out";
+                updateSlider();
+
+                setTimeout(() => {
+                    sliderTrack.style.transition = "none";
+                    activeIndex = items.length - 2;
+                    sliderTrack.style.transform = `translateX(-${(activeIndex - 1) * 33.33}%)`;
+                    setTimeout(() => {
+                        sliderTrack.style.transition = "transform 0.5s ease-in-out";
+                        updateSlider();
+                    }, 50);
+                }, 500);
+            } else {
+                updateSlider();
+            };
+        };
+
+        updateSlider();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Day3 part2 Assignment2</title>
+    </head>
+    <body>
+        <script>
+            var contacts = [];
+
+            //add function
+            function addNewContact(){
+                var newContact = {};
+                newContact.name = prompt("enter contact name");
+                newContact.phone = prompt("enter contact phone");
+                contacts.push(newContact);
+            };
+
+            //search function
+            function searchForContact(){
+                var searchKeyword = prompt("enter name or phone");
+                var access=false;
+                for(let i =0;i<contacts.length;i++){
+                    var currentContact = contacts[i];
+                    if(searchKeyword == currentContact.name || searchKeyword == currentContact.phone){
+                    window.alert("name: "+currentContact.name +"\nphone: "+currentContact.phone);
+                    access=true;
+                    break;
+                    };
+                };
+                if(!access){
+                    window.alert("There is no with this information in your contacts");
+                };
+            };
+
+            //start app
+            var operation = prompt("enter the operation [add,search,exit]");
+            while(true){
+                if(operation=='exit'){
+                    break;
+                }
+                switch(operation){
+                    case 'add': 
+                        addNewContact();
+                        break;
+                    case 'search': 
+                        searchForContact();
+                        break;
+                    default:
+                        window.alert("Invalid operation!");
+                        break;
+                }
+                operation = prompt("enter the operation [add,search,exit]")
+            }
+        </script>
+    </body>
+</html>

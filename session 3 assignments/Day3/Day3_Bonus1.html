@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Day3 part1 Bonus</title>
+    </head>
+    <body>
+        <script>
+            var num1 = null;
+            var num2 = null;
+            var result = 0;
+            var wrong=false;
+        
+            //while loop for validation first number
+            while (!num1) {
+                num1 = Number(prompt("enter the first number:"));
+                if (isNaN(num1)) {
+                    alert("enter a valid number.");
+                    num1 = null;
+                };
+            };
+
+            var operation = prompt("Enter the operation symbol [ + , * , - , / , % ]:");
+
+            //while loop for validation second number
+            while (!num2) {
+                num2 = Number(prompt("enter the second number:"));
+                if (isNaN(num2)) {
+                    alert("enter a valid number.");
+                    num2 = null;
+                };
+            };
+
+            switch(operation){
+                case '+': 
+                    result = num1 + num2;
+                    break;
+                case '-': 
+                    result = num1 - num2;
+                    break;
+                case '*': 
+                    result = num1 * num2;
+                    break;
+                case '/': 
+                    result = num1 / num2;
+                    break;
+                case '%': 
+                    result = num1 % num2;
+                    break;
+                default:
+                    window.alert("Invalid operation!");
+                    wrong=true;
+                    break;
+            };
+            if (!wrong) {
+                window.alert("Result: " + result);
+            };
+        
+            while (true) {
+                operation = prompt("Enter the operation symbol [ + , * , - , / , % ] (Type 'stop' to end):");
+                if (operation == "stop") {
+                    window.alert("Final Result: " + result);
+                    break;
+                };
+                //while loop for validation next number
+                num2=null;
+                while (!num2) {
+                    num2 = Number(prompt("enter the next number:"));
+                    if (isNaN(num2)) {
+                        alert("enter a valid number.");
+                        num2 = null;
+                    };
+                };        
+                switch(operation){
+                    case '+': 
+                        result += num2;
+                        break;
+                    case '-': 
+                        result -= num2;
+                        break;
+                    case '*': 
+                        result *= num2;
+                        break;
+                    case '/': 
+                        result /= num2;
+                        break;
+                    case '%': 
+                        result %= num2;
+                        break;
+                    default:
+                        window.alert("Invalid operation!");
+                        continue;
+                };
+                window.alert("Result: " + result);
+            };
+        </script>
+        
+        
+        
+    </body>
+</html>

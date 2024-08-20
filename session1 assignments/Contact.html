@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2f2f2f;
+            color: #fff;
+        }
+        table {
+            width: 70%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        table, th, td {
+            border: 1px solid #fff;
+        }
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            padding: 10px;
+            text-align: center;
+            background-color: #4d4d4d;
+            color: #fff;
+        }
+        td {
+            background-color: #4d4d4d;
+        }
+        caption {
+            font-size: 1.5em;
+            margin: 10px;
+        }
+        form {
+            width: 100%;
+        }
+        form input, form textarea, form select {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            background-color: #8c8c8c;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+        form input[type="submit"] {
+            background-color: #8c8c8c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        form input[type="submit"]:hover {
+            background-color: #6f6f6f;
+        }
+        select[multiple] {
+            height: auto; /* Allow height to adjust based on content */
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Contact Me Form</caption>
+        <tr><th colspan="2">Contact Me</th></tr>
+        <form action="Thankyou.html" method="get">
+            <tr>
+                <td><label for="name">Your name:</label></td>
+                <td><input type="text" name="name" id="name" placeholder="Enter your name" autofocus required></td>
+            </tr>
+            <tr>
+                <td><p>Your opinion on the website:</p></td>
+                <td>
+                    <input type="radio" name="opinion" id="Very Good" value="Very Good">
+                    <label for="Very Good">Very Good</label>
+                    <br>
+                    <input type="radio" name="opinion" id="Good" value="Good">
+                    <label for="Good">Good</label>
+                    <br>
+                    <input type="radio" name="opinion" id="fair" value="Fair">
+                    <label for="fair">Fair</label>
+                </td>
+            </tr>
+            <tr>
+                <td><p>Gender:</p></td>
+                <td>
+                    <input type="radio" name="gender" id="male" value="male">
+                    <label for="male">Male</label>
+                    <br>
+                    <input type="radio" name="gender" id="female" value="female">
+                    <label for="female">Female</label>
+                </td>
+            </tr>
+            <tr>
+                <td><p>Marital status:</p></td>
+                <td>
+                    <select name="status" id="status">
+                        <option value="single">Single</option>
+                        <option value="married">Married</option>
+                        <option value="other" selected>Other</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><p>You know about my website from:</p></td>
+                <td>
+                    <select name="know from" id="know from" multiple>
+                        <option value="internet">Internet</option>
+                        <option value="friend">Friend</option>
+                        <option value="search engine">Search Engine</option>
+                        <option value="other" selected>Other</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="email">Mail:</label></td>
+                <td><input type="email" name="email" id="email" placeholder="example@mail.com"></td>
+            </tr>
+            <tr>
+                <td><label for="subject">Subject:</label></td>
+                <td><input type="text" name="subject" id="subject"></td>
+            </tr>
+            <tr>
+                <td><label for="message">Message:</label></td>
+                <td><textarea name="message" id="message" rows="10" cols="50" placeholder="your question/problem"></textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit"></td>
+            </tr>
+        </form>
+    </table>
+</body>
+</html>

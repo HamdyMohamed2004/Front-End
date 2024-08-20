@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .cover, .contain {
+            display: inline-block;
+            width: 30%;
+            height: 600px;
+            background-image: url(https://images.pexels.com/photos/3801347/pexels-photo-3801347.jpeg?auto=compress&cs=tinysrgb&w=600);
+            background-repeat: no-repeat;
+            border: 2px solid black;
+        }
+        .cover {
+            background-size: cover;
+        }
+        .contain {
+            background-size: contain;
+        }
+        span {
+            font-size: 32px;
+            color: red;
+            font-weight: bold;
+        }
+        p {
+            font-size: 24px;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover vs. Contain</title>
+</head>
+<body>
+    <h2>Cover vs. Contain</h2>
+    <div class="cover"></div>
+    <div class="contain"></div>
+    <p><span>Cover : </span>Resize the background image to cover the entire container, even if it has to stretch the image or cut a little bit off one of the edges.</p>
+    <p><span>Contain : </span>Resize the background image to make sure the image is fully visible, which might leave some empty space if the aspect ratio of the image doesn't match the container.</p>
+</body>
+</html>

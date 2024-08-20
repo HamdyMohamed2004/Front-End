@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Day1 Assignment2</title>
+    </head>
+    <body>
+        <script>
+            alert("it’s the first release of a calculator that only has a summation feature.");
+            var num1 = null;
+            var num2 = null;
+            //while loop for validation first number
+            while (!num1) {
+                num1 = Number(prompt("enter the first number:"));
+                if (isNaN(num1)) {
+                    alert("enter a valid number.");
+                    num1 = null;
+                };
+            };
+
+            //while loop for validation second number
+            while (!num2) {
+                num2 = Number(prompt("enter the second number:"));
+                if (isNaN(num2)) {
+                    alert("enter a valid number.");
+                    num2 = null;
+                };
+            };
+            alert("result of\n"+ num1 + " + " + num2 +" = " + (num1+num2));
+        </script>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css">
+  <title>RTL & RFS</title>
+  <style>
+    body {
+      font-size: calc(1rem + 0.5vw);
+    }
+
+    .custom-text {
+      font-size: calc(1rem + 1vw);
+    }
+  </style>
+</head>
+<body class="bg-dark">
+
+<div class="container">
+  <table class="table table-bordered bg-info" dir="ltr">
+    <h3 class="text-info text-center" dir="ltr">RTL vs. RFS</h3>
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Feature</th>
+        <th scope="col">RTL (Right-to-Left)</th>
+        <th scope="col">RFS (Responsive Font Size)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Definition</th>
+        <td>RTL layout is used for languages that are written from right to left, such as Arabic, Hebrew, Persian, and Urdu.</td>
+        <td>RFS is a tool in Bootstrap that automatically resizes text based on the screen size.</td>
+      </tr>
+      <tr>
+        <th scope="row">Benefits</th>
+        <td>Enhances readability and user experience for users of RTL languages, making the web content accessible and user-friendly for a broader audience.</td>
+        <td>Ensures that the text remains readable and visually appealing across different devices, improving the overall user experience.</td>
+      </tr>
+    </tbody>
+  </table>
+  <hr class="border border-primary border-4">
+  <div class="row">
+    <div class="col-12">
+      <div class="p-3 mb-3 border bg-light">
+        <h1 class="display-4">عنوان رئيسي</h1>
+        <p class="lead">هذا نص تجريبي للتأكد من الاتجاه الصحيح للنص.</p>
+      </div>
+    </div>
+    <hr class="border border-primary border-4">
+    <div class="col-12">
+      <div class="p-3 mb-3 border bg-light custom-text">
+        <p>السلام عليكم، هذا نص بحجم خط مستجيب</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

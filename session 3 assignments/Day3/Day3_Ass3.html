@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Day3 part2 Assignment1</title>
+    </head>
+    <body>
+        <script>
+            var count=prompt("How many number you will enter to sum?");
+            var numbers=[];
+            var sum = 0;
+            var num =null;
+            for (let i = 0; i < count; i++) {
+                //while loop for validation the number
+                while (!num) {
+                    num = Number(prompt("enter the number:"));
+                    if (isNaN(num)) {
+                        alert("enter a valid number.");
+                        num =null;
+                    };
+                };
+                numbers.push(num);
+                sum+=num;
+                num =null;
+            };
+            window.alert("Numbers: "+ numbers.join(' , ') +"\nSum: "+ sum + "\nAverage: "+ (sum/count));
+        </script>
+    </body>
+</html>

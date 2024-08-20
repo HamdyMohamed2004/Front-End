@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Day3 part1 Assignment1</title>
+    </head>
+    <body>
+        <script>
+            var username =null;
+            var password =null;
+            while (username != "admin" || password != "421$$") {
+
+                //while loop for validation username
+                while (!username|| username.trim() === "") {
+                    username = prompt("enter your username:");
+                    if (username === null) {
+                    break;
+                    };
+                    if (!username || username.trim() === "") {
+                        alert("enter a valid username.");
+                    };
+                };
+
+                //while loop for validation password
+                while (!password|| password.trim() === "") {
+                    password = prompt("enter your password:");
+                    if (password === null) {
+                    break;
+                    };
+                    if (!password || password.trim() === "") {
+                        alert("enter a valid password.");
+                    };
+                };
+
+
+                if (username === null || password === null) {
+                    break;
+                };
+
+                if(username == "admin" && password == "421$$"){
+                    window.alert("Welcome login success");
+                }else if(username != "admin" && password != "421$$"){
+                    window.alert("wrong Username and password!");
+                    username =null;
+                    password =null;
+                }else if(username != "admin"){
+                    window.alert("wrong Username!")
+                    username =null;
+                    password =null;
+                }else{
+                    window.alert("wrong password!")
+                    username =null;
+                    password =null;
+                };
+            };
+        </script>
+        
+        
+    </body>
+</html>

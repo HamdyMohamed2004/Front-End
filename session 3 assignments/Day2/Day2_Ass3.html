@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Day2 Assignment3</title>
+    </head>
+    <body>
+        <script>
+            var hr,hr_converted;
+            while (true) {
+                hr = prompt("Enter the 24-hour clock system to convert it to 12-hour clock system");
+                if (hr === null) {
+                    break;
+                };
+                hr_converted = hr%12;
+                if (hr.trim() === "") {
+                    window.alert("Enter a valid Hour [0, 23]");
+                    continue;
+                };
+                hr = Number(hr);
+                if(!isNaN(hr)&&hr<24 &&hr>=0){
+                    if(hr>12){
+                    window.alert("The hour by 12-hour clock system is :"+hr_converted+"PM");
+                    }else if(hr==0){
+                    window.alert("The hour by 12-hour clock system is :"+12+"AM");
+                    }else if(hr==12){
+                        window.alert("The hour by 12-hour clock system is :"+12+"PM");
+                    }else{
+                    window.alert("The hour by 12-hour clock system is :"+hr_converted+"AM");
+                    }
+                }else{
+                    window.alert("Enter valid Hour [0,23]")
+                };
+            };
+        </script>
+    </body>
+</html>

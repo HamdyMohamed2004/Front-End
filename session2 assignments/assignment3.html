@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Bootstrap !important</title>
+    <style>
+          .bg-primary {
+      background-color: green !important;
+    }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>!important Attribute in CSS</h2>
+        <p style="font-size: 20px;">The <code>!important</code> keyword in CSS is used to increase the priority of a specific style rule. When appended to a CSS property value, it ensures that this rule will override any other rules that target the same element, regardless of their specificity or source order.</p>
+        <hr class="border border-dark border-4">
+        <h3 class="mt-3 mb-3">Example : </h3>
+        <code class="h3">
+          <pre>
+.bg-primary {
+  background-color: green !important;
+}
+          </pre>
+        </code>
+        <p class="h2 mb-4">This code in css make the Background color is green, although bg-primary in bootstrap make Background color is Blue</p>
+        <div class="row">
+            <div class="col-12">
+              <div class="p-3 bg-primary text-white">Custom Background Color</div>
+            </div>
+          </div>
+    </div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Day2 Assignment2</title>
+    </head>
+    <body>
+        <script>
+            var str =null;
+            var count=0;
+            let i=0;
+            while (!str|| str.trim() === "" || !isNaN(str)) {
+                str = prompt("Enter String:");
+                if (str === null) {
+                    break;
+                };
+                if (!str || str.trim() === "" || !isNaN(str)) {
+                    alert("enter a valid string.");
+                };
+                str=str.toLowerCase();
+            };
+            if (str !== null) {
+                while(i<str.length){
+                    if(str[i]=='a'||str[i]=='e'||str[i]=='i'||str[i]=='o'||str[i]=='u'){
+                        count++;
+                    };
+                    i++;
+                };
+                if (count==0) {
+                    alert("there is no vowels letters in this string.")
+                }else{
+                    alert("there is " + count + " vowels letters in this string.")
+                };
+            };
+        </script>
+    </body>
+</html>

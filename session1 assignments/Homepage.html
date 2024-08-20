@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2f2f2f;
+            color: #fff;
+        }
+        header, footer {
+            background-color: #8c8c8c;
+            padding: 10px;
+            text-align: center;
+        }
+        .logo {
+            width: 100px;
+            height: auto;
+        }
+        nav {
+            background-color: #a3a3a3;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        main {
+            display: flex;
+            padding: 20px;
+        }
+        aside {
+            width: 25%;
+            background-color: #4d4d4d;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .social-media {
+            margin-top: 20px;
+        }
+        .social-media img {
+            display: block;
+            margin: 10px auto;
+        }
+        section {
+            width: 75%;
+            padding: 10px;
+            background-color: #4d4d4d;
+            box-sizing: border-box;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #fff;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #4d4d4d;
+            color: #fff;
+        }
+        td {
+            background-color: #4d4d4d;
+        }
+        caption {
+            font-size: 1.5em;
+            margin: 10px;
+        }
+        form {
+            width: 100%;
+        }
+        form input, form textarea, form select {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+            box-sizing: border-box;
+            background-color: #8c8c8c;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+        form input[type="submit"] {
+            background-color: #8c8c8c;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        form input[type="submit"]:hover {
+            background-color: #6f6f6f;
+        }
+        .top_link{
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h2 id="top">Website</h2>
+        <img src="https://img.freepik.com/free-vector/www-internet-globe-grid_78370-2008.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1722384000&semt=ais_hybrid" alt="Logo" class="logo">
+    </header>
+    <nav>
+        <a href="Homepage.html">Home</a>
+        <a href="Contact.html">Contact Us</a>
+        <a href="about.html">About</a>
+    </nav>
+    <main>
+        <aside>
+            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/I7Vfsv-fdZk?si=f-YgES5qwD9tZ2po" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <hr>
+            <p>My Pages online</p>
+            <div class="social-media">
+                <a href="https://www.facebook.com/" target="_blank"><img src="https://static.vecteezy.com/system/resources/previews/018/930/698/original/facebook-logo-facebook-icon-transparent-free-png.png" alt="Facebook Logo" width="100px" height="100px"></a>
+                <a href="https://twitter.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Twitter_Logo.png" alt="Twitter Logo" width="100px" height="100px"></a>
+                
+            </div>
+        </aside>
+        <section>
+            <table>
+                <caption>My Profile</caption>
+                <form>
+                    <tr>
+                        <td><label for="name">Name:</label></td>
+                        <td><input type="text" name="name" id="name" placeholder="Enter your name" autofocus required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="age">Age:</label></td>
+                        <td><input type="text" name="age" id="age" placeholder="Enter your age" pattern="\d{1,3}" minlength="1" maxlength="3"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="address">Address:</label></td>
+                        <td><textarea name="address" id="address" rows="2" cols="20" placeholder="city-state-district-street"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><label for="phone">Phone:</label></td>
+                        <td><input type="text" name="phone" id="phone" placeholder="01xxxxxxxxx" required pattern="01\d{9}" minlength="11" maxlength="11" title="Phone number must start with '01' and be exactly 11 digits"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="text-align: center;"><input type="submit"></td>
+                    </tr>
+                </form>
+            </table>
+            <hr>
+            <h2>GET vs. POST</h2>
+            <table>
+                <tr>
+                    <th>GET</th>
+                    <th>POST</th>
+                </tr>
+                <tr>
+                    <td>Appends form data to the URL in name/value pairs. Less secure as data is visible in URL.</td>
+                    <td>Sends form data in the HTTP request body. More secure as data is not visible in URL.</td>
+                </tr>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <a href="#top" class="top_link">Top of page</a>
+        <p> Copyrights &copy; are reserved to ITI.</p>
+    </footer>
+</body>
+</html>
